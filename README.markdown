@@ -1,16 +1,17 @@
 cassandra-ca-manager
 ====================
 
-Easily create Java [keystores](https://en.wikipedia.org/wiki/Keystore) using a
-self-signed CA trust chain, for use in Cassandra (and other Java application)
-encryption.
+Easily create Java [keystores](https://en.wikipedia.org/wiki/Keystore) with a
+self-signed CA trust chain, for [Apache Cassandra](http://cassandra.apache.org) (and other Java applications).
 
 Usage
 -----
-First, create a YAML-formated manifest decribing the certificate authority and
+
+### Step 1.
+Create a YAML-formatted manifest describing the certificate authority and
 machine certificates.
 
-
+```yaml
     # The top-level working directory
     base_directory: /path/to/base/directory
 
@@ -60,8 +61,10 @@ machine certificates.
             unit: Services
           valid: 365
         password: qwerty
+```
 
-Next, run the script with the manifest as its only argument:
+### Step 2.
+Run the script with the manifest as its only argument:
     
     $ cassandra-ca-manager manifest.yaml
     $ tree /path/to/base/directory
@@ -89,6 +92,7 @@ Next, run the script with the manifest as its only argument:
 material in the base directory.  To create additional keystores later, simply
 add their definitions to the manifest, and re-run the script.*
 
-Finally, copy the resulting truststore and *.kst files to thier respective
+### Step 3.
+Copy the resulting truststore and *.kst files to their respective
 machines, and configure [server](http://cassandra.apache.org/doc/latest/configuration/cassandra_config_file.html#server-encryption-options)
 and/or [client](http://cassandra.apache.org/doc/latest/configuration/cassandra_config_file.html#client-encryption-options) encryption accordingly.
