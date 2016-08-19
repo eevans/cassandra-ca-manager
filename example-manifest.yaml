@@ -1,0 +1,49 @@
+# The top-level working directory
+base_directory: /path/to/base/directory
+
+# The Certificate Authority
+authority:
+  key:
+    size: 2048
+  cert:
+    subject:
+      organization: WMF
+      country: US
+      unit: Services
+    valid: 365
+  password: qwerty
+
+# Java keystores
+keystores:
+  - name: restbase1001-a
+    key:
+      size: 2048
+    cert:
+      subject:
+        organization: WMF
+        country: US
+        unit: Services
+      valid: 365
+    password: qwerty
+
+  - name: restbase1001-b
+    key:
+      size: 2048
+    cert:
+      subject:
+        organization: WMF
+        country: US
+        unit: Services
+      valid: 365
+    password: qwerty
+
+  - name: restbase1002-a
+    key:
+      size: 2048
+    cert:
+      subject:
+        organization: WMF
+        country: US
+        unit: Services
+        valid: 365
+    password: qwerty
